@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.AdminController"
+            prefWidth="1000" prefHeight="600"
+            style="-fx-background-color: #f0f2f5;">
+
+    <!-- TOP -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Quản lý cửa hàng nước hoa OWEN"
+                   style="-fx-font-size: 20px; -fx-text-fill: #1976D2; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lbl_greeting"
+                   text="Xin chào, Admin!"
+                   style="-fx-text-fill: #555555; -fx-font-size: 14px;"/>
+            <Button text="Đăng xuất" onAction="#logout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- BẢNG SẢN PHẨM -->
+            <VBox spacing="10" prefWidth="600">
+                <HBox spacing="10">
+                    <TextField fx:id="txt_search" promptText="Tìm kiếm theo mã, tên hoặc mùi hương" prefWidth="400"/>
+                    <Button text="Tìm" onAction="#searchProduct"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                </HBox>
+
+                <TableView fx:id="tableProduct" prefHeight="450">
+                    <columns>
+                        <TableColumn fx:id="col_image" text="Ảnh" prefWidth="100" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="col_code" text="Mã" prefWidth="80" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="col_name" text="Tên" prefWidth="140" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="col_quan" text="SL" prefWidth="50" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="col_fragrant" text="Hương" prefWidth="120" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="col_price" text="Giá" prefWidth="80" style="-fx-alignment: CENTER;"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- FORM -->
+            <VBox spacing="15" prefWidth="350"
+                  style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);">
+                <Label text="Thông tin nước hoa" style="-fx-font-size: 16px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <children>
+                        <Label text="Mã:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txt_code" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Tên:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txt_name" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Số lượng:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txt_quan" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Giá:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txt_price" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Mùi hương:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txt_fragrant" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+
+                <Button text="Chọn ảnh" onAction="#ChooseImage"
+                        style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 8;"/>
+
+                <ImageView fx:id="image" fitWidth="120" fitHeight="150" preserveRatio="true" pickOnBounds="true"
+                           style="-fx-border-color: #cccccc; -fx-border-radius: 8;"/>
+
+                <!-- Nút hành động -->
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Thêm" onAction="#addProduct"
+                            style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                    <Button text="Sửa" onAction="#updateProduct"
+                            style="-fx-background-color: #f1c40f; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                    <Button text="Xóa" onAction="#deleteProduct"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

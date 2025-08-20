@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="480.0" prefWidth="720.0"
+             xmlns="http://javafx.com/javafx"
+             xmlns:fx="http://javafx.com/fxml"
+             fx:controller="controller.LoginController"
+             style="-fx-background-color: #f5f5f5;">
+    
+    <children>
+        <VBox alignment="CENTER" spacing="15.0"
+              layoutX="160.0" layoutY="60.0" prefWidth="400.0"
+              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25;">
+            <effect>
+                <DropShadow radius="10" color="#B0BEC5" />
+            </effect>
+
+            <!-- Tiêu đề -->
+			<Label text="CỬA HÀNG NƯỚC HOA OWEN"
+			       alignment="CENTER" wrapText="false"
+			       maxWidth="Infinity"
+			       style="-fx-text-fill: #1976D2; -fx-font-weight: bold;">
+			    <font>
+			        <Font size="20.0" />
+			    </font>
+			</Label>
+
+            <!-- Nhập username -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Tên đăng nhập" />
+                <TextField fx:id="txt_user"
+                           promptText="Nhập tên đăng nhập"
+                           prefWidth="300.0"
+                           style="-fx-background-radius: 10; -fx-padding: 8;" />
+            </VBox>
+
+            <!-- Nhập mật khẩu -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Mật khẩu" />
+                <StackPane>
+                    <PasswordField fx:id="txt_password_field"
+                                   promptText="Nhập mật khẩu"
+                                   prefWidth="300.0"
+                                   style="-fx-background-radius: 10; -fx-padding: 8;" />
+                    <TextField fx:id="txt_pass"
+                               promptText="Nhập mật khẩu"
+                               prefWidth="300.0"
+                               style="-fx-background-radius: 10; -fx-padding: 8;"
+                               visible="false" />
+                </StackPane>
+                <CheckBox fx:id="check_show"
+                          text="Hiển thị mật khẩu"
+                          onAction="#AnHienMatKhau"
+                          style="-fx-font-size: 12px;" />
+            </VBox>
+
+            <!-- Label báo lỗi (ẩn ban đầu) -->
+            <Label fx:id="lb_error"
+                   textFill="red"
+                   visible="false"
+                   wrapText="true"
+                   alignment="CENTER"
+                   style="-fx-font-size: 12px;" />
+
+            <!-- Nút đăng nhập -->
+            <Button text="Đăng Nhập"
+                    onAction="#DangNhap"
+                    prefWidth="180.0"
+                    style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 20;" />
+
+            <!-- Nút tạo tài khoản -->
+            <Button text="Tạo tài khoản mới"
+                    onAction="#openRegister"
+                    prefWidth="180.0"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1976D2; -fx-font-size: 12px; -fx-underline: true;" />
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="480.0" prefWidth="720.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RegisterController"
+            style="-fx-background-color: #f5f5f5;">
+
+    <children>
+        <VBox alignment="CENTER" spacing="20.0"
+              layoutX="160.0" layoutY="60.0" prefWidth="400.0"
+              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25;">
+            <effect>
+                <DropShadow radius="10" color="#B0BEC5"/>
+            </effect>
+
+            <Label text="TẠO TÀI KHOẢN MỚI"
+                   alignment="CENTER"
+                   maxWidth="Infinity"
+                   style="-fx-text-fill: #1976D2; -fx-font-weight: bold; -fx-font-size: 20px;"/>
+
+            <!-- Họ và tên -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Họ và tên"/>
+                <TextField fx:id="txt_fullname"
+                           promptText="Nhập họ và tên"
+                           prefWidth="300.0"
+                           style="-fx-background-radius: 10; -fx-padding: 8;"/>
+            </VBox>
+
+            <!-- Email -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Email"/>
+                <TextField fx:id="txt_email"
+                           promptText="Nhập email"
+                           prefWidth="300.0"
+                           style="-fx-background-radius: 10; -fx-padding: 8;"/>
+            </VBox>
+
+            <!-- Tên đăng nhập -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Tên đăng nhập"/>
+                <TextField fx:id="txt_user"
+                           promptText="Nhập tên đăng nhập"
+                           prefWidth="300.0"
+                           style="-fx-background-radius: 10; -fx-padding: 8;"/>
+            </VBox>
+
+            <!-- Mật khẩu -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Mật khẩu"/>
+                <PasswordField fx:id="txt_password"
+                               promptText="Nhập mật khẩu"
+                               prefWidth="300.0"
+                               style="-fx-background-radius: 10; -fx-padding: 8;"/>
+            </VBox>
+
+            <!-- Nhập lại mật khẩu -->
+            <VBox spacing="6.0" alignment="CENTER_LEFT">
+                <Label text="Xác nhận mật khẩu"/>
+                <PasswordField fx:id="txt_confirm_password"
+                               promptText="Nhập lại mật khẩu"
+                               prefWidth="300.0"
+                               style="-fx-background-radius: 10; -fx-padding: 8;"/>
+            </VBox>
+
+            <!-- Label báo lỗi (ẩn ban đầu) -->
+            <Label fx:id="lb_error"
+                   textFill="red"
+                   visible="false"
+                   wrapText="true"
+                   alignment="CENTER"
+                   style="-fx-font-size: 12px;"/>
+
+            <!-- Nút đăng ký -->
+            <Button text="Đăng ký"
+                    onAction="#DangKy"
+                    prefWidth="180.0"
+                    style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 20;"/>
+
+            <!-- Nút quay lại đăng nhập -->
+            <Button text="Quay lại đăng nhập"
+                    onAction="#QuayLaiDangNhap"
+                    prefWidth="180.0"
+                    style="-fx-background-color: transparent; -fx-text-fill: #1976D2; -fx-underline: true; -fx-font-size: 12px;"/>
+        </VBox>
+    </children>
+</AnchorPane>

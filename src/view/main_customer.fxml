@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.CustomerController"
+            prefWidth="900.0" prefHeight="600.0"
+            style="-fx-background-color: #f0f2f5;">
+
+    <!-- TOP -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label text="Cửa hàng nước hoa OWEN"
+                   style="-fx-font-size: 20px; -fx-text-fill: #1976D2; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lbl_greeting"
+                   style="-fx-text-fill: #555555; -fx-font-size: 14px; -fx-padding: 5 10 0 0;" />
+            <Button text="Đăng xuất" onAction="#logout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Tìm kiếm -->
+            <HBox spacing="10">
+                <TextField fx:id="txt_search" promptText="Nhập mã, tên hoặc mùi hương" prefWidth="600.0"/>
+                <Button text="Tìm kiếm" onAction="#timKiem"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 8;"/>
+            </HBox>
+
+            <!-- Danh sách sản phẩm -->
+            <TableView fx:id="tableProduct" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="col_image" text="Ảnh" prefWidth="100.0" />
+                    <TableColumn fx:id="col_code" text="Mã" prefWidth="80.0">
+                        <style>-fx-alignment: CENTER;</style>
+                    </TableColumn>
+                    <TableColumn fx:id="col_name" text="Tên nước hoa" prefWidth="200.0">
+                        <style>-fx-alignment: CENTER;</style>
+                    </TableColumn>
+                    <TableColumn fx:id="col_quan" text="SL" prefWidth="60.0">
+                        <style>-fx-alignment: CENTER;</style>
+                    </TableColumn>
+                    <TableColumn fx:id="col_fragrant" text="Hương" prefWidth="180.0">
+                        <style>-fx-alignment: CENTER;</style>
+                    </TableColumn>
+                    <TableColumn fx:id="col_price" text="Giá" prefWidth="100.0">
+                        <style>-fx-alignment: CENTER;</style>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <!-- Thêm vào giỏ hàng -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Số lượng:" />
+                <Spinner fx:id="spinner_quantity" prefWidth="80.0" />
+                <Button text="Thêm vào giỏ" onAction="#addToCart"
+                        style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 8;"/>
+            </HBox>
+
+            <!-- Giỏ hàng -->
+            <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+                <Label text="🛒 Giỏ hàng của bạn" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                <ListView fx:id="listCart" prefHeight="130.0"/>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Xóa sản phẩm" onAction="#removeFromCart"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                    <Button text="Thanh toán" onAction="#checkout"
+                            style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
