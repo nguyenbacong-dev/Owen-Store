@@ -33,12 +33,12 @@ Dự án mô phỏng các chức năng cơ bản của một hệ thống bán h
 
 ## 📂 Cấu trúc thư mục
 Owen-Store/
-│── src/ # Mã nguồn chính
-│── resources/ # File cấu hình, giao diện, tài nguyên
-│── database/ # CSDL của ứng dụng
-│── ImageProduct/ # Hình ảnh sản phẩm
-│── bin/ # File biên dịch
-│── .settings/ # Cấu hình IDE
+│── src/              # Mã nguồn chính
+│── resources/        # File cấu hình, giao diện, tài nguyên
+│── database/         # CSDL của ứng dụng
+│── ImageProduct/     # Hình ảnh sản phẩm
+│── bin/              # File biên dịch
+│── .settings/        # Cấu hình IDE
 
 ## ▶️ Cách chạy dự án
 1. Clone repo về máy:  
